@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#121311" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23121311'/%3E%3Cpath d='M9 4h9l-3 10h8L10 29l3-11H6z' fill='%23e34f32'/%3E%3C/svg%3E" />
+    <title>Dead Flip — Pinball</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="arcade-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div><p class="kicker">MIDNIGHT ARCADE / TABLE 07</p><h1>DEAD FLIP</h1></div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button rescue-button" id="rescueButton" type="button" aria-label="Rescue stuck ball" title="Rescue stuck ball">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="m6.3 6.3 3.6 3.6m4.2 4.2 3.6 3.6m0-11.4-3.6 3.6m-4.2 4.2-3.6 3.6"/></svg>
+          </button>
+          <button class="icon-button" id="soundButton" type="button" aria-label="Mute sound" title="Mute sound">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v6h4l5 4V5L9 9H5Z"/><path class="sound-wave" d="M17 9a4 4 0 0 1 0 6M19.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>
+          </button>
+          <button class="icon-button" id="pauseButton" type="button" aria-label="Pause game" title="Pause game">
+            <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+          </button>
+          <button class="icon-button" id="restartButton" type="button" aria-label="Restart game" title="Restart game">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="game-layout" aria-label="Pinball machine">
+        <aside class="score-panel" aria-live="polite">
+          <div class="score-block"><p>SCORE</p><strong id="score">000000</strong></div>
+          <div class="stat-row"><span>BALL</span><strong id="ballCount">3</strong></div>
+          <div class="stat-row"><span>HIGH</span><strong id="highScore">000000</strong></div>
+          <div class="stat-row"><span>MULTI</span><strong id="multiplier">1X</strong></div>
+          <div class="status-line"><span class="status-dot"></span><span id="statusText">PRESS START</span></div>
+        </aside>
+
+        <div class="cabinet">
+          <div class="cabinet-bolts" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <canvas id="gameCanvas" width="640" height="960" aria-label="Dead Flip pinball playfield"></canvas>
+          <div class="game-overlay" id="gameOverlay">
+            <p class="overlay-kicker">NO TOKENS REQUIRED</p>
+            <h2 id="overlayTitle">DEAD<br />FLIP</h2>
+            <p id="overlayCopy">Keep it alive. Break the machine.</p>
+            <button class="start-button" id="startButton" type="button"><span>START GAME</span><kbd>SPACE</kbd></button>
+          </div>
+          <div class="callout" id="callout" aria-live="polite"></div>
+        </div>
+
+        <aside class="controls-panel">
+          <p class="panel-label">CONTROLS</p>
+          <div class="key-guide"><kbd>Z</kbd><span>LEFT FLIPPER</span></div>
+          <div class="key-guide"><kbd>/</kbd><span>RIGHT FLIPPER</span></div>
+          <div class="key-guide"><kbd>SPACE</kbd><span>PLUNGER</span></div>
+          <div class="key-guide"><kbd>← →</kbd><span>NUDGE</span></div>
+          <div class="rule"></div>
+          <p class="tiny-copy">Light all three lanes to raise the multiplier. Bumpers build combo. Don’t tilt.</p>
+        </aside>
+      </section>
+
+      <div class="mobile-controls" aria-label="Touch controls">
+        <button id="leftTouch" type="button" aria-label="Left flipper"><span>L</span></button>
+        <button id="launchTouch" class="launch-touch" type="button" aria-label="Launch ball"><span>LAUNCH</span></button>
+        <button id="rightTouch" type="button" aria-label="Right flipper"><span>R</span></button>
+      </div>
+      <footer><span>KRACKED DEVS / VIBE BUILD 2026</span><span>BEST WITH SOUND ON</span></footer>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
