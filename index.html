@@ -3,89 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#070d24" />
-    <meta name="description" content="Malam Mania: Merdeka After Dark, a retro-futurist Malaysian pinball adventure." />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070d24'/%3E%3Cpath d='M5 16h22M16 5v22' stroke='%23ffd34e' stroke-width='4'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ef3340'/%3E%3C/svg%3E" />
-    <title>Malam Mania: Merdeka After Dark</title>
+    <meta name="theme-color" content="#121311" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23121311'/%3E%3Cpath d='M9 4h9l-3 10h8L10 29l3-11H6z' fill='%23e34f32'/%3E%3C/svg%3E" />
+    <title>Dead Flip — Pinball</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="arcade-shell" id="arcadeShell">
+    <main class="arcade-shell">
       <header class="topbar">
         <div class="brand-lockup">
-          <span class="brand-crescent" aria-hidden="true"></span>
-          <div><p class="kicker">KUALA LUMPUR / 31 AUG / 23:59</p><h1>MALAM <em>MANIA</em></h1></div>
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div><p class="kicker">MIDNIGHT ARCADE / TABLE 07</p><h1>DEAD FLIP</h1></div>
         </div>
         <div class="top-actions">
-          <button class="icon-button rescue-button" id="rescueButton" type="button" aria-label="Rescue stuck ball" title="Rescue stuck ball">LIFE</button>
-          <button class="icon-button" id="fullscreenButton" type="button" aria-label="Toggle fullscreen" title="Fullscreen">FULL</button>
-          <button class="icon-button" id="soundButton" type="button" aria-label="Mute sound" aria-pressed="false" title="Sound">SND</button>
-          <button class="icon-button" id="pauseButton" type="button" aria-label="Pause game" aria-pressed="false" title="Pause">II</button>
-          <button class="icon-button" id="restartButton" type="button" aria-label="Restart game" title="Restart">↻</button>
+          <button class="icon-button rescue-button" id="rescueButton" type="button" aria-label="Rescue stuck ball" title="Rescue stuck ball">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="m6.3 6.3 3.6 3.6m4.2 4.2 3.6 3.6m0-11.4-3.6 3.6m-4.2 4.2-3.6 3.6"/></svg>
+          </button>
+          <button class="icon-button" id="soundButton" type="button" aria-label="Mute sound" title="Mute sound">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v6h4l5 4V5L9 9H5Z"/><path class="sound-wave" d="M17 9a4 4 0 0 1 0 6M19.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>
+          </button>
+          <button class="icon-button" id="pauseButton" type="button" aria-label="Pause game" title="Pause game">
+            <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>
+          </button>
+          <button class="icon-button" id="restartButton" type="button" aria-label="Restart game" title="Restart game">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>
+          </button>
         </div>
       </header>
 
-      <section class="machine" aria-label="Malam Mania pinball machine">
-        <div class="backbox">
-          <div class="score-block"><span>SCORE</span><strong id="score">00000000</strong></div>
-          <div class="hud-stat"><span>BALL</span><strong id="ballCount">3</strong></div>
-          <div class="hud-stat"><span>PLAYFIELD</span><strong id="multiplier">1X</strong></div>
-          <div class="hud-stat"><span>COMBO</span><strong id="comboValue">1X</strong></div>
-          <div class="hud-stat high-stat"><span>HIGH</span><strong id="highScore">00000000</strong></div>
-          <div class="tilt-wrap"><span>TILT</span><i class="tilt-meter" id="tiltMeter"></i></div>
-          <div class="objective-strip"><span class="live-dot"></span><strong id="objectiveText">LIGHT LANDMARKS: KL TOWER · PETRONAS · PARLIAMENT</strong><small id="statusText">PRESS START</small></div>
-        </div>
+      <section class="game-layout" aria-label="Pinball machine">
+        <aside class="score-panel" aria-live="polite">
+          <div class="score-block"><p>SCORE</p><strong id="score">000000</strong></div>
+          <div class="stat-row"><span>BALL</span><strong id="ballCount">3</strong></div>
+          <div class="stat-row"><span>HIGH</span><strong id="highScore">000000</strong></div>
+          <div class="stat-row"><span>MULTI</span><strong id="multiplier">1X</strong></div>
+          <div class="status-line"><span class="status-dot"></span><span id="statusText">PRESS START</span></div>
+        </aside>
 
-        <div class="play-zone">
-          <aside class="side-card rules-card">
-            <p class="panel-label">MISSION 01</p>
-            <h2>CALL THE<br><em>RAIN</em></h2>
-            <ol>
-              <li>Light three landmarks</li>
-              <li>Shoot the storm scoop</li>
-              <li>Collect West + East</li>
-              <li>Hit the skybridge</li>
-            </ol>
-            <details><summary>CONTROLS</summary><p><kbd>Z</kbd> left flipper<br><kbd>/</kbd> right flipper<br><kbd>SPACE</kbd> plunger<br><kbd>← →</kbd> nudge<br><kbd>P</kbd> pause</p></details>
-          </aside>
-
-          <div class="cabinet">
-            <div class="cabinet-bolts" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <canvas id="gameCanvas" width="720" height="1080" aria-label="Retro-futurist Malaysian pinball playfield"></canvas>
-            <div class="game-overlay" id="gameOverlay">
-              <p class="overlay-kicker">A MALAYSIAN PINBALL STORY</p>
-              <h2 id="overlayTitle">MERDEKA<br><em>AFTER DARK</em></h2>
-              <p id="overlayCopy">Light the city. Call the rain. Unite both coasts.</p>
-              <div class="attract-route"><span>3 LANDMARKS</span><b>→</b><span>RAINSTORM</span><b>→</b><span>MERDEKA</span></div>
-              <button class="start-button" id="startButton" type="button"><span>START GAME</span><kbd>SPACE</kbd></button>
-              <form class="initials-form" id="initialsForm" hidden>
-                <label for="initialsInput">NEW HIGH SCORE / INITIALS</label>
-                <div><input id="initialsInput" maxlength="3" autocomplete="off" inputmode="text" aria-label="Three character initials" /><button type="submit">ENTER</button></div>
-              </form>
-            </div>
-            <div class="callout" id="callout" aria-live="assertive"></div>
+        <div class="cabinet">
+          <div class="cabinet-bolts" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <canvas id="gameCanvas" width="640" height="960" aria-label="Dead Flip pinball playfield"></canvas>
+          <div class="game-overlay" id="gameOverlay">
+            <p class="overlay-kicker">NO TOKENS REQUIRED</p>
+            <h2 id="overlayTitle">DEAD<br />FLIP</h2>
+            <p id="overlayCopy">Keep it alive. Break the machine.</p>
+            <button class="start-button" id="startButton" type="button"><span>START GAME</span><kbd>SPACE</kbd></button>
           </div>
-
-          <aside class="side-card leaderboard-card">
-            <p class="panel-label">LOCAL LEGENDS</p>
-            <h2>TOP<br><em>FIVE</em></h2>
-            <ol id="leaderboard"><li><span>1. ---</span><strong>00000000</strong></li></ol>
-            <p class="flavor">MALAYSIA BOLEH<br>KEEP THE BALL ALIVE</p>
-          </aside>
+          <div class="callout" id="callout" aria-live="polite"></div>
         </div>
+
+        <aside class="controls-panel">
+          <p class="panel-label">CONTROLS</p>
+          <div class="key-guide"><kbd>Z</kbd><span>LEFT FLIPPER</span></div>
+          <div class="key-guide"><kbd>/</kbd><span>RIGHT FLIPPER</span></div>
+          <div class="key-guide"><kbd>SPACE</kbd><span>HOLD PLUNGER</span></div>
+          <div class="key-guide"><kbd>← →</kbd><span>NUDGE</span></div>
+          <div class="rule"></div>
+          <p class="tiny-copy">Light all three lanes to raise the multiplier. Bumpers build combo. Don’t tilt.</p>
+        </aside>
       </section>
 
       <div class="mobile-controls" aria-label="Touch controls">
-        <button id="leftTouch" type="button" aria-label="Left flipper"><span>FLIP L</span></button>
-        <button id="launchTouch" class="launch-touch" type="button" aria-label="Hold and release to launch"><span>LAUNCH</span></button>
-        <button id="rightTouch" type="button" aria-label="Right flipper"><span>FLIP R</span></button>
+        <button id="leftTouch" type="button" aria-label="Left flipper"><span>L</span></button>
+        <button id="launchTouch" class="launch-touch" type="button" aria-label="Launch ball"><span>LAUNCH</span></button>
+        <button id="rightTouch" type="button" aria-label="Right flipper"><span>R</span></button>
       </div>
-      <p class="sr-only" id="stateSummary" aria-live="polite">Game ready.</p>
-      <footer><span>KRACKED DEVS / VIBE BUILD 2026</span><span>ORIGINAL PROCEDURAL AUDIO / BEST WITH SOUND ON</span></footer>
+      <footer><span>KRACKED DEVS / VIBE BUILD 2026</span><span>BEST WITH SOUND ON</span></footer>
     </main>
-    <script type="module" src="src/game.js"></script>
+    <script src="game.js"></script>
   </body>
 </html>
