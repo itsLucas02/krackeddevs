@@ -45,7 +45,7 @@
 
         <div class="cabinet">
           <div class="cabinet-bolts" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <canvas id="gameCanvas" width="640" height="960" aria-label="Dead Flip pinball playfield"></canvas>
+          <canvas id="gameCanvas" width="760" height="1180" aria-label="Dead Flip pinball playfield"></canvas>
           <div class="game-overlay" id="gameOverlay">
             <p class="overlay-kicker">NO TOKENS REQUIRED</p>
             <h2 id="overlayTitle">DEAD<br />FLIP</h2>
@@ -62,7 +62,7 @@
           <div class="key-guide"><kbd>SPACE</kbd><span>HOLD PLUNGER</span></div>
           <div class="key-guide"><kbd>← →</kbd><span>NUDGE</span></div>
           <div class="rule"></div>
-          <p class="tiny-copy">Light all three lanes to raise the multiplier. Bumpers build combo. Don’t tilt.</p>
+          <p class="tiny-copy">Clear the 10 / 25 / 50 targets to raise the multiplier. Drop the center bank, then shoot the bonus.</p>
         </aside>
       </section>
 
@@ -73,6 +73,7 @@
       </div>
       <footer><span>KRACKED DEVS / VIBE BUILD 2026</span><span>BEST WITH SOUND ON</span></footer>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
     <script src="game.js"></script>
   </body>
 </html>
