@@ -1,3 +1,8 @@
 .DS_Store
 .playwright-cli/
-
+.kilo/node_modules/
+.kilo/package.json
+.kilo/package-lock.json
+.kilo/pnpm-lock.yaml
+.kilo/yarn.lock
+.kilo/bun.lock
