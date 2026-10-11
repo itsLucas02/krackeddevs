@@ -1,5 +1,7 @@
 # Dead Flip
 
+[![Live demo](https://img.shields.io/badge/live-demo-4f8cff?style=flat-square)](https://itslucas02.github.io/krackeddevs/)
+
 A fast, chaotic browser pinball game built for a one-day vibe coding challenge. It uses a custom Canvas physics loop with responsive keyboard and touch controls, procedural sound, scoring, multipliers, and automatic stuck-ball recovery.
 
 ## Play locally
